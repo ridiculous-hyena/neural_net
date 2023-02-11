@@ -30,7 +30,11 @@ def add_vectors(vector_1, vector_2):
 def multiply_matrixes(matrix_1, matrix_2):
 	assert matrix_1.ndim > 1 and matrix_2.ndim > 1
 	
-	return numpy.matmul(matrix_1, matrix_2)
+	matrix_dim_1 = numpy.shape(matrix_1)
+	matrix_dim_2 = numpy.shape(matrix_2)
+
+	if matrix_dim_1[1] == matrix_dim_2[0]:
+		return numpy.matmul(matrix_1, matrix_2)
 	
 
 def multiply_matrix_and_vector(matrix_, vector_):
