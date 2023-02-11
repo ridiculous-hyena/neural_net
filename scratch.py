@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 import tensorflow as tf
 from matplotlib import pyplot as plt
 from matrix_operations import *
@@ -27,7 +27,22 @@ def main():
 		plt.imshow(x_train[i], cmap=plt.get_cmap('gray'))
 
 	# show the figure
-	plt.show()
+	#plt.show()
+
+	a_1d = np.arange(4)
+	a_2d = np.arange(12).reshape((3, 4))
+	b_2d = (a_2d.copy() * 2)#.reshape((4,3))
+	'''
+	result = multiply_matrixes(a_2d, b_2d)
+	print(a_2d)
+	print(b_2d)
+	print(result)
+	'''
+	print(a_1d)
+	print(a_2d)
+	result = multiply_matrix_by_vector(a_2d, a_1d)
+	
+	print(result)
 
 if __name__ == '__main__':
 	main()

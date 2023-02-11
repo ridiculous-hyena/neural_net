@@ -1,6 +1,6 @@
 import numpy
 
-def add_matrix_to_vector(matrix_, vector_):
+def add_matrix_by_vector(matrix_, vector_):
 	'''
 	Matrices are not usually added to vectors.
 	what we are looking for is "broadcasting"
@@ -30,19 +30,21 @@ def add_vectors(vector_1, vector_2):
 def multiply_matrixes(matrix_1, matrix_2):
 	assert matrix_1.ndim > 1 and matrix_2.ndim > 1
 	
-	matrix_dim_1 = numpy.shape(matrix_1)
-	matrix_dim_2 = numpy.shape(matrix_2)
+	matrix_1_row, matrix_1_col = numpy.shape(matrix_1)
+	matrix_2_row, matrix_2_col = numpy.shape(matrix_2)
 
-	if matrix_dim_1[1] == matrix_dim_2[0]:
-		return numpy.matmul(matrix_1, matrix_2)
+	assert matrix_1_col == matrix_2_row
+	
+	return numpy.matmul(matrix_1, matrix_2)
 	
 
-def multiply_matrix_and_vector(matrix_, vector_):
+def multiply_matrix_by_vector(matrix_, vector_):
 	assert matrix_.ndim > 1 and vector_.ndim == 1
 	
-	vector_dims = numpy.shape(vector_)
-	matrix_dims = numpy.shape(matrix_)
+	vector_row, vector_col = numpy.shape(vector_)
+	matrix_row, matrix_col = numpy.shape(matrix_)
 
-	if matrix_[1] == vector_[0]:
-		return numpy.matmul(matrix_, vector_)		
+	assert matrix_col == vector_row
+	
+	return numpy.matmul(matrix_, vector_)		
 	
