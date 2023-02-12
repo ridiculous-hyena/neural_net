@@ -2,8 +2,8 @@ import numpy
 
 def add_matrix_by_vector(matrix_, vector_):
 	'''
-	Matrices are not usually added to vectors.
-	what we are looking for is "broadcasting"
+	Matrices generally cannot be added to vectors.
+	What we are actually looking for is "broadcasting"
 	which is where the vector is broadcast the 
 	larger array to that we actually have a
 	compatible shape to add together.
