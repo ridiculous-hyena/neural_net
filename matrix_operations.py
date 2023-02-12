@@ -1,6 +1,6 @@
 import numpy
 
-def add_matrix_by_vector(matrix_, vector_):
+def add_matrix_to_vector(matrix_, vector_):
 	'''
 	Matrices generally cannot be added to vectors.
 	What we are actually looking for is "broadcasting"
