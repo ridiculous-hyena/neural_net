@@ -12,7 +12,13 @@ def add_matrix_to_vector(matrix_, vector_):
 	transforms the 3x1 vector into a 3x3 matrix
 	'''
 	assert vector_.ndim == 1
-	assert matrix_.ndim > 1
+	assert matrix_.ndim == 2
+
+	row_size, col_size = numpy.shape(matrix_)
+
+	for row in row_size:
+		for col in col_size:
+			matrix_[row, col] += vector_[col]
 
 	return matrix_ + vector_
 
@@ -28,7 +34,7 @@ def add_vectors(vector_1, vector_2):
 	return vector_1 + vector_2
 
 def multiply_matrixes(matrix_1, matrix_2):
-	assert matrix_1.ndim > 1 and matrix_2.ndim > 1
+	assert matrix_1.ndim == 2 and matrix_2.ndim == 2
 	
 	matrix_1_row, matrix_1_col = numpy.shape(matrix_1)
 	matrix_2_row, matrix_2_col = numpy.shape(matrix_2)
@@ -39,7 +45,7 @@ def multiply_matrixes(matrix_1, matrix_2):
 	
 
 def multiply_matrix_by_vector(matrix_, vector_):
-	assert matrix_.ndim > 1 and vector_.ndim == 1
+	assert matrix_.ndim == 2 and vector_.ndim == 1
 	
 	vector_row, vector_col = numpy.shape(vector_)
 	matrix_row, matrix_col = numpy.shape(matrix_)
@@ -48,3 +54,8 @@ def multiply_matrix_by_vector(matrix_, vector_):
 	
 	return numpy.matmul(matrix_, vector_)		
 	
+def tensor_dot(vector_1, vector_2):
+	assert vector_1.ndim == 1 and vector_2.ndim == 1
+
+	
+
