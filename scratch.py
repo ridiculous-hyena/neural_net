@@ -4,11 +4,6 @@ from matplotlib import pyplot as plt
 from matrix_operations import *
 
 
-def sigmoid_activation_layer():
-    pass
-def relu_activate_layer():
-    pass
-
 def main():
 	#feedforward network
 	rand_int2 = numpy.random.randint(0,5,(4,5)) # random numpy array of shape (4,5)
@@ -40,7 +35,7 @@ def main():
 	'''
 	print(a_1d)
 	print(a_2d)
-	result = multiply_matrix_by_vector(a_2d, a_1d)
+	result = vector_dot_product(a_1d, a_1d)
 	
 	print(result)
 
